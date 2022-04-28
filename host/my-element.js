@@ -19,26 +19,29 @@ class myElement extends HTMLElement {
     return template;
   }
   getStyles() {
+    // :host actuará como el estilo báse de todo el componente.
     return `
       <style>
-        h2 {
-          color: #4dd331;
-        }
-        p {
-          color: white;
-        }
-        section {
-          background-color: slategray;
-          padding: 4px;
-          border-radius: 4px;
-        }
-        ::slotted(.paragraph) {
+        :host {
+          display: inline-block;
+          width: 100%;
+          min-width: 300px;
+          max-width: 400px;
           background-color: slateblue;
-          padding: 4px;
-          border-radius: 4px
+          margin: 5px;
+          padding: 20px;
         }
-        ::slotted(*) {
-          text-decoration: underline;
+        :host(.red) {
+          background: red;
+        }
+        :host([yellow]) {
+          background: yellow;
+        }
+        :host([yellow]) h2 {
+          background: slateblue;
+          color: white;
+          padding: 10px;
+          border-radius: 10px;
         }
       </style>
     `;

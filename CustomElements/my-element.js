@@ -8,9 +8,9 @@ class myElement extends HTMLElement {
     const template = document.createElement('template');
     template.innerHTML = `
       <section>
-        <h2 class="holamundo">Hola Mundo</h2>
+        <h2>Hola Mundo</h2>
         <div>
-          <p>Este es un texto de prueba</p>
+          <p>Este es mi primer elemento</p>
         </div>
       </section>
       ${this.getStyles()}
@@ -19,15 +19,25 @@ class myElement extends HTMLElement {
   }
   getStyles() {
     return `
-      <style>
-        h2 {
-          color: #4dd331;
-        }
-        p {
-          color: blue;
-        }
-      </style>
-    `;
+    <style>
+      :host {
+        display: inline-block;
+        width: 100%;
+        --primary-color: tomato;
+        --secondary-color: salmon;
+        --text-color: black;
+      }
+      section {
+        background: var(--primary-color)
+      }
+      section div {
+        background: var(--secondary-color)
+      }
+      p {
+        color: var(--text-color)
+      }
+    </style>
+  `;
   }
   render() {
     // una vez que en el constructor se inicializa el shadow dom, 
