@@ -1,3 +1,4 @@
+// Este es un componente estático.
 class myElement extends HTMLElement {
   constructor() { // inicializa el componente
     super(); // para tener acceso a los métodos de la clase de la que extiende
